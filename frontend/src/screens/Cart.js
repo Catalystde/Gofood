@@ -22,7 +22,7 @@ const handleCheckOut = async(e)=>{
 
   let userEmail = localStorage.getItem("userEmail");
   console.log(userEmail);
-  const response = await fetch("http://localhost:5000/api/orderData",{
+  const response = await fetch("https://gofood-backend-api.vercel.app/api/orderData",{
     method: 'POST',
     headers:{
         'Content-Type':'application/json'
