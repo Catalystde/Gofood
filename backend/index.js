@@ -6,6 +6,7 @@ const { jwtSecret,mongoURI} = require('./config/keys')
 const mongoDB = require("./db")
 mongoDB();
 const cors = require('cors');
+app.use((cors));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
