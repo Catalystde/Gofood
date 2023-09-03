@@ -4,15 +4,18 @@ const app = express()
 const port = 5000
 const { jwtSecret,mongoURI} = require('./config/keys')
 const mongoDB = require("./db")
+const cors = require('cors')
 mongoDB();
+app.use(cors({
+  origin: '*'
+}));
 
-
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "");
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  next();
-})
+// app.use((req, res, next) => {
+//   res.setHeader("Access-Control-Allow-Origin", "");
+//   res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
+//   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+//   next();
+// })
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
