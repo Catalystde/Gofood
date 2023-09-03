@@ -1,6 +1,5 @@
 
 const express = require('express')
-import cors from 'cors'
 const app = express()
 const port = 5000
 const { jwtSecret,mongoURI} = require('./config/keys')
