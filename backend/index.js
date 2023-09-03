@@ -6,15 +6,13 @@ const { jwtSecret,mongoURI} = require('./config/keys')
 const mongoDB = require("./db")
 mongoDB();
 const cors = require('cors');
-app.use(cors({
-    origin: 'https://gofood-api.vercel.app',
-    methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
-}));
+
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "");
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  res.setHeader("strict-origin-when-cross-origin");
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
   next();
 })
 app.get('/', (req, res) => {
